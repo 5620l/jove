@@ -895,7 +895,7 @@ local res = http.request(database.."joke.db")
       groups = redis:sismember('groups',chat_id)
       if input:match("^[#!/][Mm]ute document$") and is_mod(msg) and groups or input:match("^[Mm]ute document$") and is_mod(msg) and groups or input:match("^ممنوعیت فایل$") and is_mod(msg) and groups then
         if redis:get('mute_documenttg:'..chat_id) then
-          tdcli.sendText(chat_id, msg.id_, 0, 1, nil, '🔸 #ممنوعیت فایل _فعال_ است, 1, 'md')
+          tdcli.sendText(chat_id, msg.id_, 0, 1, nil, '🔸 #ممنوعیت فایل _فعال_ است', 1, 'md')
         else
           redis:set('mute_documenttg:'..chat_id, true)
           tdcli.sendText(chat_id, msg.id_, 0, 1, nil, '🔹 #ممنوعیت فایل _فعال_ شد', 1, 'md')
